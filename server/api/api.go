@@ -7,8 +7,8 @@ import (
 	"net/http"
 	"regexp"
 
-	"github.com/trezor/trezord-go/core"
-	"github.com/trezor/trezord-go/memorywriter"
+	"github.com/stops-top/trezord/core"
+	"github.com/stops-top/trezord/memorywriter"
 
 	"github.com/gorilla/mux"
 )

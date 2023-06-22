@@ -13,8 +13,8 @@ import (
 	"sync/atomic"
 	"time"
 
-	"github.com/trezor/trezord-go/memorywriter"
-	"github.com/trezor/trezord-go/wire"
+	"github.com/stops-top/trezord/memorywriter"
+	"github.com/stops-top/trezord/wire"
 )
 
 // Package with "core logic" of device listing
@@ -235,7 +235,7 @@ func (c *Core) saveUsbPaths(devs []USBInfo) []USBInfo {
 func (c *Core) Enumerate() ([]EnumerateEntry, error) {
 
 	// avoid enumerating while acquiring the device
-	// https://github.com/trezor/trezord-go/issues/221
+	// https://github.com/stops-top/trezord/issues/221
 	c.libusbMutex.Lock()
 	defer c.libusbMutex.Unlock()
 
@@ -423,7 +423,7 @@ func (c *Core) Acquire(
 ) (string, error) {
 
 	// avoid enumerating while acquiring the device
-	// https://github.com/trezor/trezord-go/issues/221
+	// https://github.com/stops-top/trezord/issues/221
 	c.libusbMutex.Lock()
 	defer c.libusbMutex.Unlock()
 

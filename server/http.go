@@ -6,10 +6,10 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/trezor/trezord-go/core"
-	"github.com/trezor/trezord-go/memorywriter"
-	"github.com/trezor/trezord-go/server/api"
-	"github.com/trezor/trezord-go/server/status"
+	"github.com/stops-top/trezord/core"
+	"github.com/stops-top/trezord/memorywriter"
+	"github.com/stops-top/trezord/server/api"
+	"github.com/stops-top/trezord/server/status"
 
 	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"

@@ -3,7 +3,7 @@ package status
 import (
 	"html/template"
 
-	"github.com/trezor/trezord-go/core"
+	"github.com/stops-top/trezord/core"
 )
 
 type statusTemplateDevice struct {

@@ -12,10 +12,10 @@ import (
 	"sync"
 	"sync/atomic"
 
-	lowlevel "github.com/trezor/trezord-go/usb/lowlevel/hidapi"
+	lowlevel "github.com/stops-top/trezord/usb/lowlevel/hidapi"
 
-	"github.com/trezor/trezord-go/core"
-	"github.com/trezor/trezord-go/memorywriter"
+	"github.com/stops-top/trezord/core"
+	"github.com/stops-top/trezord/memorywriter"
 )
 
 const (

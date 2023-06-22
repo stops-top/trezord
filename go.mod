@@ -1,4 +1,4 @@
-module github.com/trezor/trezord-go
+module github.com/stops-top/trezord
 
 go 1.12
 

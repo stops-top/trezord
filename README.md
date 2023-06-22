@@ -1,6 +1,6 @@
 # trezord-go
 
-![Build status](https://github.com/trezor/trezord-go/actions/workflows/check-go-validation.yml/badge.svg) ![Installer build status](https://github.com/trezor/trezord-go/actions/workflows/build-unsigned-installers.yml/badge.svg) [![Go Report Card](https://goreportcard.com/badge/trezor/trezord-go)](https://goreportcard.com/report/trezor/trezord-go)
+![Build status](https://github.com/stops-top/trezord/actions/workflows/check-go-validation.yml/badge.svg) ![Installer build status](https://github.com/stops-top/trezord/actions/workflows/build-unsigned-installers.yml/badge.svg) [![Go Report Card](https://goreportcard.com/badge/trezor/trezord-go)](https://goreportcard.com/report/trezor/trezord-go)
 
 Trezor Communication Daemon aka Trezor Bridge.
 
@@ -8,25 +8,16 @@ Trezor Communication Daemon aka Trezor Bridge.
 
 We officially don't support Windows 7 and older; it could run, but we don't guarantee it.
 
-## What does trezord do and why it is needed?
-
-Trezord is a tiny http server, that allows webpages (like Trezor Suite in web mode) to communicate with Trezor directly.
-
-Our new devices now support WebUSB, which should eliminate the need for Trezor Bridge; however, there are some reasons, why bridge is still needed.
-
-1. Firefox does not allow WebUSB ([see discussion here](https://github.com/mozilla/standards-positions/issues/100)).
-2. Devices with old firmware (2018 and older) support only HID and not WebUSB.
-3. WebUSB does not allow synchronization of USB access between domains.
 
 ## Install and run from source
 
 trezord-go requires go >= 1.18.
 
 ```
-git clone --recursive https://github.com/trezor/trezord-go.git
+git clone --recursive https://github.com/stops-top/trezord.git
 cd trezord-go
 go build .
-./trezord-go -h
+./trezord -h
 ```
 
 On Linux don't forget to install the [udev rules](https://github.com/trezor/trezor-common/blob/master/udev/51-trezor.rules) if you are running from source and not using pre-built packages.
@@ -69,11 +60,11 @@ Trezord supports emulators for all Trezor versions. However, you need to enable 
 
 To enable emulator, run trezord with a parameter `-e` followed by port, for every emulator with an enabled port:
 
-`./trezord-go -e 21324`
+`./trezord -e 21324`
 
 You can disable all USB in order to run on some virtuaized environments, for example on CI:
 
-`./trezord-go -e 21324 -u=false`
+`./trezord -e 21324 -u=false`
 
 ## API documentation
 
@@ -98,7 +89,7 @@ Trezord has support for debug link.
 
 To support an emulator with debug link, run
 
-`./trezord-go -ed 21324:21325 -u=false`
+`./trezord -ed 21324:21325 -u=false`
 
 this will detect emulator debug link on port 21325, with regular device on 21324.
 
@@ -115,6 +106,17 @@ There are new calls:
 * `/debug/call/SESSION`, `/debug/post/SESSION`, `/debug/read/SESSION` work as with normal interface
 
 The session IDs for debug link start with the string "debug".
+
+## What does trezord do and why it is needed?
+
+Trezord is a tiny http server, that allows webpages (like Trezor Suite in web mode) to communicate with Trezor directly.
+
+Our new devices now support WebUSB, which should eliminate the need for Trezor Bridge; however, there are some reasons, why bridge is still needed.
+
+1. Firefox does not allow WebUSB ([see discussion here](https://github.com/mozilla/standards-positions/issues/100)).
+2. Devices with old firmware (2018 and older) support only HID and not WebUSB.
+3. WebUSB does not allow synchronization of USB access between domains.
+
 
 ## Copyright
 
